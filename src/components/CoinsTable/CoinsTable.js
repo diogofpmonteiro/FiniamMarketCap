@@ -20,13 +20,10 @@ const CoinsTable = () => {
   const handleSearch = (event) => {
     event.preventDefault();
     setSearchForm(event.target.value);
-  };
-
-  const filteredSearch = (search) => {
-    const filteredCoins = dataCoins.filter((coins) => coins.name.toLowerCase().includes(search.toLowerCase()));
+    const filteredCoins = dataCoins.filter((coins) => coins.name.toLowerCase().includes(searchForm.toLowerCase()));
     setDataCoins(filteredCoins);
 
-    if (search.length === 0) {
+    if (searchForm.length < 1) {
       getCoinsData();
     }
   };
@@ -38,15 +35,7 @@ const CoinsTable = () => {
   return (
     <div className='main-container'>
       <div className='search-bar-container'>
-        <input
-          className='search-bar'
-          type='search'
-          placeholder='Type to search'
-          name='search'
-          value={searchForm}
-          onChange={handleSearch}
-          onBlur={() => filteredSearch(searchForm)}
-        />
+        <input className='search-bar' type='search' placeholder='Type to search' name='search' value={searchForm} onChange={handleSearch} />
       </div>
       <table>
         <thead>
