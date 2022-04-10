@@ -54,6 +54,11 @@ th {
   text-align: center;
 }
 
+tr:hover {
+  background-color: #4d00e5;
+  color: white;
+}
+
 .coins_logo {
   width: 40px;
   height: 40px;
@@ -80,4 +85,20 @@ th {
   display: flex;
   flex-direction: column;
   margin: 2em 5em;
+}
+
+.details-title {
+  font-weight: bold;
+}
+
+.details-text {
+  margin: 10px;
+}
+
+.back-btn {
+  padding: 10px 20px;
+  margin: 10px 20px;
+  border: 1px solid gray;
+  background-color: #4d00e5;
+  color: white;
 }

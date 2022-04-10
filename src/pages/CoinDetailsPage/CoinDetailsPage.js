@@ -30,13 +30,16 @@ const CoinDetailsPage = () => {
     coinData && (
       <>
         <div className='details-container'>
-          <h4>Description:</h4>
-          <span>{coinData.description.en}</span>
-          <h4>Market cap: </h4> <span>{coinData.market_data.market_cap.eur} €</span>
-          <h4>Total Volume traded: </h4>
-          <span>{coinData.market_data.total_volume.eur} € </span>
+          <h4 className='details-title'>Description:</h4>
+          <span className='details-text'>{coinData.description.en}</span>
+          <h4 className='details-title'>Market cap: </h4>
+          <span className='details-text'>{coinData.market_data.market_cap.eur} €</span>
+          <h4 className='details-title'>Total Volume traded: </h4>
+          <span className='details-text'>{coinData.market_data.total_volume.eur} € </span>
         </div>
-        <button onClick={goBack}>Back</button>
+        <button className='back-btn' onClick={goBack}>
+          Back
+        </button>
       </>
     )
   );
