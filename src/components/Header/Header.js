@@ -1,8 +1,10 @@
 const Header = () => {
   return (
-    <div>
+    <div className='header'>
       <ul>
-        <li>Logo</li>
+        <li>
+          <img src='/images/finiamlogo.png' alt='finiamlogo' className='finiamlogo' />
+        </li>
         <li>FiniamMarketPlace</li>
         <li>Home</li>
       </ul>

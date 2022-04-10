@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const CoinsTable = () => {
   const [dataCoins, setDataCoins] = useState(null);
@@ -27,24 +28,26 @@ const CoinsTable = () => {
     <div>
       <table>
         <thead>
-          <tr>
+          <tr className='table-row'>
             <th>#</th>
-            <th>Logo</th>
+            <th></th>
             <th>Coin</th>
-            <th>Symbol</th>
             <th>Price</th>
           </tr>
         </thead>
         <tbody>
           {dataCoins &&
             dataCoins.map((data, idx) => (
-              <tr>
+              <tr key={data.id} className='table-row'>
                 <td>{idx + 1}</td>
                 <td>
                   <img src={data.image} alt='logo' className='coins_logo' />
                 </td>
-                <td>{data.name}</td>
-                <td>{data.symbol.toUpperCase()}</td>
+                <td>
+                  <Link to={`/${data.id}`}>
+                    {data.name} - {data.symbol.toUpperCase()}
+                  </Link>
+                </td>
                 <td>{data.current_price}$</td>
               </tr>
             ))}
