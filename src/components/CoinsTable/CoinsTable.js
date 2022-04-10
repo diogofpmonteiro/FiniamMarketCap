@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const CoinsTable = () => {
   const [dataCoins, setDataCoins] = useState(null);
+  const [searchForm, setSearchForm] = useState("");
 
-  // call to coingecko api to get our initial coins information
   const getCoinsData = async () => {
     try {
       const response = await fetch(
@@ -17,15 +17,33 @@ const CoinsTable = () => {
     }
   };
 
-  // console.log("data", dataCoins);
+  const handleSearch = (event) => {
+    event.preventDefault();
+    setSearchForm(event.target.value);
+  };
 
-  // useEffect only during mounting stage so we get the needed information
+  const filteredSearch = (search) => {
+    const filteredCoin = dataCoins.filter((coins) => coins.name.toLowerCase().includes(search.toLowerCase()));
+    setDataCoins(filteredCoin);
+  };
+
   useEffect(() => {
     getCoinsData();
   }, []);
 
   return (
-    <div>
+    <div className='main-container'>
+      <div className='search-bar-container'>
+        <input
+          className='search-bar'
+          type='search'
+          placeholder='Type to search'
+          name='search'
+          value={searchForm}
+          onChange={handleSearch}
+          onBlur={() => filteredSearch(searchForm)}
+        />
+      </div>
       <table>
         <thead>
           <tr className='table-row'>

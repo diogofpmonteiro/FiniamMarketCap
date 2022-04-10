@@ -5,8 +5,12 @@ const Header = () => {
         <li>
           <img src='/images/finiamlogo.png' alt='finiamlogo' className='finiamlogo' />
         </li>
-        <li>FiniamMarketPlace</li>
-        <li>Home</li>
+        <a href='/' className='header-tab'>
+          <li>FiniamMarketCap</li>
+        </a>
+        <a href='/' className='header-tab'>
+          <li>Home</li>
+        </a>
       </ul>
     </div>
   );

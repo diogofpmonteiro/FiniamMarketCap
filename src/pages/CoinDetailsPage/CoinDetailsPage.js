@@ -28,12 +28,16 @@ const CoinDetailsPage = () => {
 
   return (
     coinData && (
-      <div>
+      <>
+        <div className='details-container'>
+          <h4>Description:</h4>
+          <span>{coinData.description.en}</span>
+          <h4>Market cap: </h4> <span>{coinData.market_data.market_cap.eur} €</span>
+          <h4>Total Volume traded: </h4>
+          <span>{coinData.market_data.total_volume.eur} € </span>
+        </div>
         <button onClick={goBack}>Back</button>
-        <p>Description: {coinData.description.en}</p>
-        <p>Market cap: {coinData.market_data.market_cap.eur} €</p>
-        <p>Total Volume traded: {coinData.market_data.total_volume.eur} € </p>
-      </div>
+      </>
     )
   );
 };
