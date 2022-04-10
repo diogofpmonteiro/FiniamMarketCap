@@ -23,8 +23,12 @@ const CoinsTable = () => {
   };
 
   const filteredSearch = (search) => {
-    const filteredCoin = dataCoins.filter((coins) => coins.name.toLowerCase().includes(search.toLowerCase()));
-    setDataCoins(filteredCoin);
+    const filteredCoins = dataCoins.filter((coins) => coins.name.toLowerCase().includes(search.toLowerCase()));
+    setDataCoins(filteredCoins);
+
+    if (search.length === 0) {
+      getCoinsData();
+    }
   };
 
   useEffect(() => {
